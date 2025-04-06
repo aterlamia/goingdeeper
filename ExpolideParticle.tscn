@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhs0fd2dj3hyv"]
+
+[ext_resource type="Texture2D" uid="uid://yrxiqxshsesg" path="res://start1.png" id="1_vgf3x"]
+
+[sub_resource type="Curve" id="Curve_mjifh"]
+_data = [Vector2(0.0716228, 0.0324454), 0.0, 0.0, 0, 0, Vector2(0.245694, 0.284441), 0.0, 0.0, 0, 0, Vector2(0.594742, 0.188763), 0.0, 0.0, 0, 0, Vector2(0.788758, 0.291179), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+scale = Vector2(0.2, 0.2)
+emitting = false
+amount = 20
+texture = ExtResource("1_vgf3x")
+lifetime = 0.42
+one_shot = true
+explosiveness = 1.0
+randomness = 0.4
+lifetime_randomness = 0.12
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 76.9
+initial_velocity_max = 275.28
+angular_velocity_max = 90.0
+radial_accel_min = 28.17
+radial_accel_max = 88.03
+angle_min = 60.8
+angle_max = 111.5
+scale_amount_curve = SubResource("Curve_mjifh")
+color = Color(1, 0.820109, 0.898433, 1)
+hue_variation_min = 0.3
+hue_variation_max = 0.59

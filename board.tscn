@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpus5fhgk5638"]
+
+[ext_resource type="Script" uid="uid://dq3s8mqco8l4x" path="res://board.gd" id="1_p0ybc"]
+[ext_resource type="PackedScene" uid="uid://pywmyuaf3sr" path="res://board_grid.tscn" id="2_psm7c"]
+[ext_resource type="AudioStream" uid="uid://wf1stbgeca6h" path="res://expold2.mp3" id="3_8l818"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_p0ybc")
+
+[node name="BoardGrid" parent="." instance=ExtResource("2_psm7c")]
+
+[node name="Expolode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8l818")
+volume_db = -14.375
+max_polyphony = 4

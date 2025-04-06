@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2igkhqvu4qid"]
+
+[ext_resource type="Texture2D" uid="uid://cyns1ouna73g6" path="res://tiles.png" id="1_f7rny"]
+[ext_resource type="Script" uid="uid://cprhd7ti56lsh" path="res://score_particle.gd" id="2_dv2p3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv2p3"]
+atlas = ExtResource("1_f7rny")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Curve" id="Curve_f7rny"]
+_data = [Vector2(0.0398912, 0.052659), 0.0, 0.0, 0, 0, Vector2(0.74796, 0.21841), 0.0, 0.0, 0, 0, Vector2(0.875793, 0.455582), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+scale = Vector2(0.6, 0.6)
+amount = 10
+texture = SubResource("AtlasTexture_dv2p3")
+lifetime_randomness = 0.72
+spread = 78.27
+gravity = Vector2(0, 7)
+initial_velocity_min = 19.72
+initial_velocity_max = 30.83
+angular_velocity_min = 7.2
+angular_velocity_max = 16.8
+linear_accel_min = 1.0
+linear_accel_max = 2.0
+radial_accel_min = 1.0
+radial_accel_max = 2.0
+scale_amount_curve = SubResource("Curve_f7rny")
+hue_variation_min = 0.05
+hue_variation_max = 0.44
+script = ExtResource("2_dv2p3")

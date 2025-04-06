@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://uh8xg44w4vca"]
+
+[ext_resource type="Script" uid="uid://jwyd63a4q500" path="res://tile.gd" id="1_vx4y2"]
+[ext_resource type="Texture2D" uid="uid://cyns1ouna73g6" path="res://tiles.png" id="2_a2t34"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfor0"]
+atlas = ExtResource("2_a2t34")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx4y2"]
+size = Vector2(64, 64)
+
+[node name="Tile" type="Node2D"]
+script = ExtResource("1_vx4y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_tfor0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vx4y2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -25.0
+offset_right = 32.0
+offset_bottom = 24.0
+text = "1,1
+"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Label"]
+visible = false
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 64.0
+offset_bottom = 67.0
+text = "1,1
+"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

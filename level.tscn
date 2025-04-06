@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv2uc5aobqnnw"]
+
+[ext_resource type="Script" uid="uid://mhcdc45xoh1c" path="res://level.gd" id="1_f2txt"]
+[ext_resource type="PackedScene" uid="uid://cpus5fhgk5638" path="res://board.tscn" id="1_u52ul"]
+[ext_resource type="Texture2D" uid="uid://xmgdy4q5muf3" path="res://frame.png" id="2_1ainy"]
+[ext_resource type="PackedScene" uid="uid://bcs7ub6422ifi" path="res://enemy.tscn" id="3_0b4ue"]
+[ext_resource type="Script" uid="uid://c32wiukvvoo6y" path="res://turn_manager.gd" id="3_f2txt"]
+[ext_resource type="PackedScene" uid="uid://bu007goidoc72" path="res://player.tscn" id="3_oi3di"]
+[ext_resource type="FontFile" uid="uid://t744rj8lyfu4" path="res://fonts/Adventure ReQuest.otf" id="7_n6hdu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ainy"]
+bg_color = Color(0.156863, 0.188235, 0.219608, 1)
+border_width_top = 10
+border_color = Color(0.129412, 0.137255, 0.168627, 1)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_f2txt")
+
+[node name="Frame" type="Sprite2D" parent="."]
+position = Vector2(623, 309)
+scale = Vector2(1.55, 1.43333)
+texture = ExtResource("2_1ainy")
+
+[node name="Board" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_u52ul")]
+position = Vector2(381, 40)
+scale = Vector2(0.88, 0.88)
+player = NodePath("../TurnManager/Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 326)
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("3_f2txt")
+
+[node name="Player" parent="TurnManager" instance=ExtResource("3_oi3di")]
+position = Vector2(123, 528)
+
+[node name="Enemies" type="Node" parent="TurnManager"]
+
+[node name="Enemy" parent="TurnManager/Enemies" instance=ExtResource("3_0b4ue")]
+position = Vector2(1066, 538)
+
+[node name="Enemy2" parent="TurnManager/Enemies" instance=ExtResource("3_0b4ue")]
+position = Vector2(973, 538)
+
+[node name="Label" type="Label" parent="TurnManager"]
+offset_left = 282.0
+offset_top = 14.0
+offset_right = 345.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("7_n6hdu")
+text = "Moves"
+
+[node name="Moves" type="Label" parent="TurnManager"]
+offset_left = 323.0
+offset_top = 33.0
+offset_right = 386.0
+offset_bottom = 74.0
+theme_override_colors/font_outline_color = Color(0.316191, 0.381654, 0.358461, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("7_n6hdu")
+theme_override_font_sizes/font_size = 30
+text = "3"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -34.0
+offset_top = 550.0
+offset_right = 1179.0
+offset_bottom = 662.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ainy")

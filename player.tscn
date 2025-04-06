@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://bu007goidoc72"]
+
+[ext_resource type="Script" uid="uid://b4w3ehij1adr8" path="res://player.gd" id="1_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://uu5feum7hiw0" path="res://playerplaceholder.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://7vm8gfca8yit" path="res://baremptyl.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dgllv4rwwnbnu" path="res://bartop.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://fpoeahisuf7l" path="res://bar.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://cyns1ouna73g6" path="res://tiles.png" id="5_1jxqw"]
+[ext_resource type="FontFile" uid="uid://t744rj8lyfu4" path="res://fonts/Adventure ReQuest.otf" id="5_2hs0m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("5_1jxqw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("5_1jxqw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("5_1jxqw")
+region = Rect2(128, 0, 64, 64)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_1jxqw")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4flbx")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -58.0
+offset_top = 59.0
+offset_right = 72.0
+offset_bottom = 87.0
+step = 1.64
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_i3pqv")
+texture_over = ExtResource("3_sweqy")
+texture_progress = ExtResource("4_2hs0m")
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = -55.0
+offset_top = 62.0
+offset_right = 67.0
+offset_bottom = 85.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_2hs0m")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="LiveIcon" type="Sprite2D" parent="."]
+position = Vector2(-71, 72)
+scale = Vector2(0.453125, 0.5)
+texture = SubResource("AtlasTexture_dw050")
+
+[node name="Attack" type="Sprite2D" parent="."]
+position = Vector2(36, 99)
+scale = Vector2(0.351563, 0.328125)
+texture = SubResource("AtlasTexture_b26j0")
+
+[node name="AttackLabel" type="Label" parent="."]
+offset_left = 46.0
+offset_top = 88.0
+offset_right = 86.0
+offset_bottom = 111.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_2hs0m")
+text = "1"
+
+[node name="Shield" type="Sprite2D" parent="."]
+position = Vector2(-49, 100)
+scale = Vector2(0.351563, 0.34375)
+texture = SubResource("AtlasTexture_n7ghd")
+
+[node name="DefenceLabel" type="Label" parent="."]
+offset_left = -37.0
+offset_top = 88.0
+offset_right = 3.0
+offset_bottom = 111.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_2hs0m")
+text = "1"

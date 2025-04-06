@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://pywmyuaf3sr"]
+
+[ext_resource type="Script" uid="uid://c4emylkq3sft3" path="res://board_grid.gd" id="1_2oqgx"]
+[ext_resource type="Script" uid="uid://cjt3gixb4v7gf" path="res://high_lighter.gd" id="2_1b7do"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b7do"]
+bg_color = Color(0.952941, 0.945098, 0.792157, 0.0941176)
+border_color = Color(1, 1, 1, 0.788235)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1owli"]
+bg_color = Color(0.952941, 0.945098, 0.792157, 0.0941176)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.788235)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxv0d"]
+bg_color = Color(0.952941, 0.945098, 0.792157, 0.0941176)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.788235)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrq4e"]
+bg_color = Color(0.952941, 0.945098, 0.792157, 0.0941176)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.788235)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdl2a"]
+bg_color = Color(0.952941, 0.945098, 0.792157, 0.0941176)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_color = Color(1, 1, 1, 0.788235)
+border_blend = true
+
+[node name="BoardGrid" type="Node2D"]
+script = ExtResource("1_2oqgx")
+
+[node name="HighLighter" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_1b7do")
+border_width = 3
+border_color = Color(1, 1, 1, 0.788235)
+panel_color = Color(0.952941, 0.945098, 0.792157, 0.0941176)
+
+[node name="Middle" type="Panel" parent="HighLighter"]
+z_index = 20
+offset_left = -32.0
+offset_top = -35.0
+offset_right = 32.0
+offset_bottom = 30.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1b7do")
+
+[node name="Bottom" type="Panel" parent="HighLighter"]
+z_index = 20
+offset_left = -37.0
+offset_top = 30.0
+offset_right = 37.0
+offset_bottom = 102.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1owli")
+
+[node name="Left" type="Panel" parent="HighLighter"]
+z_index = 20
+offset_left = -102.0
+offset_top = -35.0
+offset_right = -32.0
+offset_bottom = 31.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uxv0d")
+
+[node name="Right" type="Panel" parent="HighLighter"]
+z_index = 20
+offset_left = 32.0
+offset_top = -34.0
+offset_right = 102.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qrq4e")
+
+[node name="Top" type="Panel" parent="HighLighter"]
+z_index = 20
+offset_left = -37.0
+offset_top = -106.0
+offset_right = 37.0
+offset_bottom = -34.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdl2a")
